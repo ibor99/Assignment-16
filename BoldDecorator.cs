@@ -12,7 +12,16 @@ namespace Assignment_16
 
         public override string ApplyFormat()
         {
-            return "Bold " + _textElement.ApplyFormat();
+            AddFormat("Bold");
+            return base.ApplyFormat();
+        }
+
+        public override void RemoveFormat(string format)
+        {
+            if (format == "Bold")
+            {
+                base.RemoveFormat(format);
+            }
         }
     }
 }

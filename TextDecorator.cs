@@ -15,6 +15,19 @@ namespace Assignment_16
             _textElement = textElement;
         }
 
-        public abstract string ApplyFormat();
+        public virtual string ApplyFormat()
+        {
+            return _textElement.ApplyFormat();
+        }
+
+        public virtual void AddFormat(string format)
+        {
+            _textElement.AddFormat(format);
+        }
+
+        public virtual void RemoveFormat(string format) 
+        {
+            _textElement.RemoveFormat(format);
+        }
     }
 }

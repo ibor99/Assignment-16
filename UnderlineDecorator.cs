@@ -12,7 +12,17 @@ namespace Assignment_16
 
         public override string ApplyFormat()
         {
-            return "Underline " + _textElement.ApplyFormat();
+            AddFormat("Underline");
+            return base.ApplyFormat();
         }
+
+        public override void RemoveFormat(string format)
+        {
+            if(format == "Underline")
+            {
+                base.RemoveFormat(format);
+            }
+        }
+
     }
 }

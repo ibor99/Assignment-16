@@ -12,7 +12,16 @@ namespace Assignment_16
 
         public override string ApplyFormat()
         {
-            return "Italic " + _textElement.ApplyFormat();
+            AddFormat("Italic");
+            return base.ApplyFormat();
+        }
+
+        public override void RemoveFormat(string format)
+        {
+            if (format == "Italic")
+            {
+                base.RemoveFormat(format);
+            }
         }
     }
 }

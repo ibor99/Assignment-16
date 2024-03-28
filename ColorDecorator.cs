@@ -16,7 +16,16 @@ namespace Assignment_16
 
         public override string ApplyFormat()
         {
-            return $"{_color} Color " + _textElement.ApplyFormat();
+            AddFormat($"Color({_color})");
+            return base.ApplyFormat();
+        }
+
+        public override void RemoveFormat(string format)
+        {
+            if (format == $"Color({_color})")
+            {
+                base.RemoveFormat(format);
+            }
         }
     }
 }
