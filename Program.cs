@@ -1,14 +1,22 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using Assignment_16;
 
-Console.WriteLine("Hello, World!");
 
-ITextElement text = new PlainTextElement("Example text.");
+ITextElement textElement = new TextElement("Hello, world!");
+textElement.AddFormat("Bold ");
+textElement.AddFormat("Italic ");
 
-text = new ItalicDecorator(new BoldDecorator(new ColorDecorator(text, "Orange")));
+Console.WriteLine(textElement.ApplyFormat()); // Outputs: Bold Italic Hello, world!
 
-Console.WriteLine(text.ApplyFormat().ToString());
+textElement.RemoveFormat("Italic ");
 
-text.RemoveFormat("Bold");
+Console.WriteLine(textElement.ApplyFormat()); // Outputs: Bold Hello, world!
 
-Console.WriteLine(text.ApplyFormat());
+ITextElement plainTextElement = new PlainTextElement("Hello, world!");
+
+Console.WriteLine(plainTextElement.ApplyFormat()); // Outputs: Hello, world!
+
+ITextElement decoratedPlainTextElement = new TextDecorator(plainTextElement);
+decoratedPlainTextElement.AddFormat("Bold ");
+
+Console.WriteLine(decoratedPlainTextElement.ApplyFormat()); // Outputs: Bold Hello, world!

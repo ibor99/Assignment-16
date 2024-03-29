@@ -6,28 +6,30 @@ using System.Threading.Tasks;
 
 namespace Assignment_16
 {
-    public abstract class TextDecorator : ITextElement
+    public class TextDecorator : ITextElement
     {
-        protected readonly ITextElement _textElement;
+        protected ITextElement _textElement;
+        protected string _format;
 
         public TextDecorator(ITextElement textElement)
         {
             _textElement = textElement;
+            _format = "";
         }
 
         public virtual string ApplyFormat()
         {
-            return _textElement.ApplyFormat();
+            return _format + _textElement.ApplyFormat();
         }
 
         public virtual void AddFormat(string format)
         {
-            _textElement.AddFormat(format);
+            _format += format;
         }
 
-        public virtual void RemoveFormat(string format) 
+        public virtual void RemoveFormat(string format)
         {
-            _textElement.RemoveFormat(format);
+            _format = _format.Replace(format, "");
         }
     }
 }
